@@ -22,24 +22,25 @@ export const Vigilancia = () => {
   
   return (
     <div className='container '>
-      <h1 className='offset-2'> INFORMACION TOMADA EN PUERTA </h1>
+      <h1 > INFORMACION TOMADA EN PUERTA </h1>
 
       <div className='row container-fluid bg-dark'>
 
-        <div className='col-3 my-5'>
-          <div className='col-12 '>
-            <button type="button" onClick={cambioIngreso} className="btn btn-primary p-3 m-3">INGRESO DE CARGA</button>
+        <div className='col-md-3 mt-5 p-5 mr-5'>
+
+          <div className=''>
+            <button type="button" onClick={cambioIngreso} className="btn btn-primary py-3 mt-1">INGRESO DE CARGA</button>
           </div>
-          <div className='col-12 '>
-            <button type="button" onClick={cambioSalida} className="btn btn-warning p-3 m-3">SALIDA DE CARGA</button>
+          <div className=''>
+            <button type="button" onClick={cambioSalida} className="btn btn-danger py-3 mt-1">SALIDA DE CARGA</button>
           </div>
-          <div className='col-12 '>
-            <button type="button" onClick={mostrarTotal} className="btn btn-warning p-3 m-3">CARGAS INGRESADAS</button>
+          <div className=' '>
+            <button type="button" onClick={mostrarTotal} className="btn btn-warning py-3 mt-1">CARGAS INGRESADAS</button>
           </div>
         </div>
 
 
-        <div className='col-6 d-flex flex-row my-5 bg-success p-4'>
+        <div className='col-sm-10 col-md-7 col-lg-5 d-flex flex-row  bg-primary p-4 my-3 mx-4'>
           {ingreso}
 
         </div>

@@ -26,10 +26,10 @@ export const FormIgreso = () => {
                                 EMPRESA ASOCIADA
                             </button>
                             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a className="dropdown-item" onClick={() => console.log('hola mundo')}>ARZAC CONSULTING SAC</a>
-                                <a className="dropdown-item" > MINING LOS LAURELES EIRL	</a>
-                                <a className="dropdown-item" >MINERA PICAPIEDRA 1313 EIRL</a>
-                                <a className="dropdown-item" >CONSORCIO HUERTA MINING EIRL</a>
+                                <button className="dropdown-item" onClick={() => console.log('hola mundo')}>ARZAC CONSULTING SAC</button>
+                                <button className="dropdown-item" href='#'> MINING LOS LAURELES EIRL	</button>
+                                <button className="dropdown-item" >MINERA PICAPIEDRA 1313 EIRL</button>
+                                <button className="dropdown-item" >CONSORCIO HUERTA MINING EIRL</button>
                             </div>
                         </div>
                         <input
