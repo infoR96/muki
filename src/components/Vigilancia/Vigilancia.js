@@ -7,35 +7,39 @@ export const Vigilancia = () => {
 
   const [ingreso, setingreso] = useState(FormIgreso)
 
-  const cambioIngreso = ()=>{
+  const cambioIngreso = () => {
     setingreso(FormIgreso);
   }
 
-  const cambioSalida = ()=>{
+  const cambioSalida = () => {
     setingreso(FormSalida);
   }
 
 
-  const mostrarTotal = ()=>{
+  const mostrarTotal = () => {
     setingreso(CantidadCargas);
   }
-  
+
   return (
     <div className='container '>
       <h1 > INFORMACION TOMADA EN PUERTA </h1>
 
-      <div className='row container-fluid bg-dark'>
+      <div className='row  bg-dark'>
 
-        <div className='col-md-3 mt-5 p-5 mr-5'>
-
+        <div className='col-md-4 mt-5 p-5 mr-5'>
           <div className=''>
-            <button type="button" onClick={cambioIngreso} className="btn btn-primary py-3 mt-1">INGRESO DE CARGA</button>
-          </div>
-          <div className=''>
-            <button type="button" onClick={cambioSalida} className="btn btn-danger py-3 mt-1">SALIDA DE CARGA</button>
-          </div>
-          <div className=' '>
-            <button type="button" onClick={mostrarTotal} className="btn btn-warning py-3 mt-1">CARGAS INGRESADAS</button>
+            <div className='col-4 '>
+              <button type="button" onClick={cambioIngreso}
+                className="btn btn-primary py-3 mt-1 botones">INGRESO DE CARGA</button>
+            </div>
+            <div className='col-md-4 ' >
+              <button type="button" onClick={cambioSalida}
+                className="btn btn-danger py-3 mt-1 botones">SALIDA DE CARGA</button>
+            </div>
+            <div className='col-md-4'>
+              <button type="button" onClick={mostrarTotal}
+                className="btn btn-warning py-3 mt-1 botones">CARGAS INGRESADAS</button>
+            </div>
           </div>
         </div>
 
