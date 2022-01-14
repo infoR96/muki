@@ -22,32 +22,22 @@ export const Vigilancia = () => {
 
   return (
     <div className='container '>
-      <h1 > INFORMACION TOMADA EN PUERTA </h1>
-
-      <div className='row  bg-dark'>
-
-        <div className='col-md-4 mt-5 p-5 mr-5'>
-          <div className=''>
-            <div className='col-4 '>
-              <button type="button" onClick={cambioIngreso}
-                className="btn btn-primary py-3 mt-1 botones">INGRESO DE CARGA</button>
-            </div>
-            <div className='col-md-4 ' >
-              <button type="button" onClick={cambioSalida}
-                className="btn btn-danger py-3 mt-1 botones">SALIDA DE CARGA</button>
-            </div>
-            <div className='col-md-4'>
-              <button type="button" onClick={mostrarTotal}
-                className="btn btn-warning py-3 mt-1 botones">CARGAS INGRESADAS</button>
-            </div>
-          </div>
+      <div className='bg-light row'>
+        <div className='col-sm-'>
+          <img src='./assets/img/logo.jpg' />
         </div>
-
-
-        <div className='col-sm-10 col-md-7 col-lg-5 d-flex flex-row  bg-primary p-4 my-3 mx-4'>
+        <div className='col-sm-8'>
+          <h1 className=' mt-3 titulo'>Control de cargas</h1>
+        </div>
+      </div>
+      <div className='row bg-dark my-5' >
+        <div className='col-md-4 mt-5 p-5 ml-4 '>
+          <button type="button" onClick={cambioIngreso}
+            className="btn btn-primary py-3 mt-3 botones">INGRESO DE CARGA</button>
+          <button type="button" onClick={cambioSalida}
+            className="btn btn-danger py-3 mt-3 botones">SALIDA DE CARGA</button>
+        </div>
           {ingreso}
-
-        </div>
       </div>
     </div>
   )

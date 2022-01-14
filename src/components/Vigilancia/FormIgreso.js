@@ -1,24 +1,29 @@
 import React from 'react'
+import moment from 'moment';
+
 
 export const FormIgreso = () => {
+
+   const now= moment().format('DD/MM/YYYY HH:mm');
     return (
-        <div className='Container'>
+        <div className='d-flex flex-row  bg-primary p-4 my-3 ml-4 formingreso '>
+        <div className='Container '>
             <div>
                 <div className='row container-fluid '>
                     <div className='Form-group col-12'>
                         <input
                             type='text'
-                            className='form-control p-3 my-2'
+                            className='form-control p-3 my-2 inputs'
                             placeholder='RUC/DNI'
                         />
                         <input
                             type='text'
-                            className='form-control p-3  my-2'
+                            className='form-control p-3  my-2 inputs'
                             placeholder='NOMBRE'
                         />
                         <input
                             type='text'
-                            className='form-control p-3  my-2'
+                            className='form-control p-3  my-2 inputs'
                             placeholder='NUMERO DE CONTACTO'
                         />
                         <div className="dropdown mx-5 offset-2 col-10">
@@ -34,23 +39,30 @@ export const FormIgreso = () => {
                         </div>
                         <input
                             type='text'
-                            className='form-control p-3 my-2'
+                            className='form-control p-3 my-2 inputs'
                             placeholder='Tonelaje de Ingreso'
                         />
                         <input
                             type='text'
-                            className='form-control p-3 my-2'
+                            className='form-control p-3 my-2 inputs'
                             placeholder='NUMERO DE TICKET'
                         />
                            <input
                             type='text'
-                            className='form-control p-3  my-2'
+                            className='form-control p-3  my-2 inputs'
                             placeholder='ACOPIADOR'
                         />
+
+                        <h4>Ingreso: {now}</h4>
+                        <button className='btn btn-success py-3 mt-3 ' type='submit'>
+                        CARGA INGRESADA
+                    </button>
                     </div>
+                   
                 </div>
             </div>
 
+        </div>
         </div>
 
     )
