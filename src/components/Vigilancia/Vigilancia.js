@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FormIgreso } from './FormIgreso'
 import { FormSalida } from './FormSalida'
-import { CantidadCargas } from './CantidadCargas'
+// import { CantidadCargas } from './CantidadCargas'
 
 export const Vigilancia = () => {
 
@@ -16,15 +16,15 @@ export const Vigilancia = () => {
   }
 
 
-  const mostrarTotal = () => {
-    setingreso(CantidadCargas);
-  }
+//  const mostrarTotal = () => {
+//     setingreso(CantidadCargas);
+//   } 
 
   return (
     <div className='container '>
       <div className='bg-light row'>
         <div className='col-sm-'>
-          <img src='./assets/img/logo.jpg' />
+          <img src='./assets/img/logo.jpg' alt='muki kutana' />
         </div>
         <div className='col-sm-8'>
           <h1 className=' mt-3 titulo'>Control de cargas</h1>
