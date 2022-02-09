@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import moment from 'moment';
 
 
@@ -8,7 +8,8 @@ const initState = {
     contacto: '',
     tonelaje: '',
     ticket: '',
-    acopiador: ''
+    acopiador: '',
+    mineral: ''
 }
 const empresas = [
     {
@@ -38,41 +39,41 @@ const empresas = [
 ]
 
 export const FormIgreso = () => {
-    const [data,setData]=useState(initState)
+    const [data, setData] = useState(initState)
     const handleInputChange = ({ target }) => {
 
         setData({
             ...data,
-            [ target.name ]: target.value
+            [target.name]: target.value
         });
 
     }
     useEffect(() => {
-        console.log('data',data)
-    },[ setData])
+        console.log('data', data)
+    }, [setData])
 
     const now = moment().format('DD/MM/YYYY HH:mm');
 
-    const {ruc,nombre,contacto,tonelaje,ticket,acopiador} = data;
+    const { ruc, nombre, contacto, tonelaje, ticket, acopiador, mineral } = data;
 
-    const select = ({target})=>{
-       const seleccion = empresas.filter(empresa =>empresa.id === target.value)
-       JSON.stringify(seleccion)
-       const {razon, ruc,cel} = seleccion[0];
+    const select = ({ target }) => {
+        const seleccion = empresas.filter(empresa => empresa.id === target.value)
+        JSON.stringify(seleccion)
+        const { razon, ruc, cel } = seleccion[0];
 
-       console.log('esta es la seleccion: ',typeof(seleccion),seleccion);
-       setData({
-           ...data,
-           ruc:ruc,
-           nombre:razon,
-           contacto:cel
+        console.log('esta es la seleccion: ', typeof (seleccion), seleccion);
+        setData({
+            ...data,
+            ruc: ruc,
+            nombre: razon,
+            contacto: cel
 
 
-    });
+        });
 
     }
-    console.log(data)
 
+    console.log(data);
     return (
         <div className='d-flex flex-row  bg-primary p-4 my-3 ml-4 formingreso '>
             <div className='Container '>
@@ -109,7 +110,7 @@ export const FormIgreso = () => {
                                 </button>
                                 <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <button className="dropdown-item" value="1" onClick={select}  >ARZAC CONSULTING SAC</button>
-                                    <button className="dropdown-item" value="2"  onClick={select}>MINING LOS LAURELES EIRL</button>
+                                    <button className="dropdown-item" value="2" onClick={select}>MINING LOS LAURELES EIRL</button>
                                     <button className="dropdown-item" value="3" onClick={select}>MINERA PICAPIEDRA 1313 EIRL</button>
                                     <button className="dropdown-item" value='4' onClick={select}>CONSORCIO HUERTA MINING EIRL</button>
                                 </div>
@@ -138,10 +139,19 @@ export const FormIgreso = () => {
                                 name='acopiador'
                                 onChange={handleInputChange}
                             />
+                            <input
+                                type='text'
+                                className='form-control p-3  my-2 inputs'
+                                placeholder='MINERAL'
+                                value={mineral}
+                                name='mineral'
+                                onChange={handleInputChange}
+                            />
+
                             <h4>Ingreso:{now}</h4>
-                            <button className='btn btn-success py-3 mt-3 '  type='submit' >
+                            <button className='btn btn-success py-3 mt-3 ' type='submit' >
                                 <i className="far fa-save"></i>
-                                
+
                                 <span>CARGA INGRESADA</span>
                             </button>
                         </div>
