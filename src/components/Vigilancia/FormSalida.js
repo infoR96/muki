@@ -6,7 +6,7 @@ export const FormSalida = () => {
             <div className='Container '>
 
                 <div className='row container-fluid '>
-                    <table class="table">
+                    <table className="table">
                         <thead>
                             <tr>
                                 <th scope="col">Ticket</th>
@@ -30,7 +30,7 @@ export const FormSalida = () => {
                             </tr>
                             <tr>
                                 <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
+                                <td colSpan="2">Larry the Bird</td>
                                 <td>@twitter</td>
                             </tr>
                         </tbody>

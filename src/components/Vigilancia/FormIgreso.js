@@ -1,32 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import moment from 'moment';
 
-const empresas = [
-    {
-        id: '1',
-        razon: 'ARZAC CONSULTING SAC',
-        ruc: '123',
-        cel: '-------'
-    },
-    {
-        id: '2',
-        razon: 'MINING LOS LAURELES EIRL',
-        ruc: '123',
-        cel: '-------'
-    },
-    {
-        id: '3',
-        razon: 'MINERA PICAPIEDRA 1313 EIRL',
-        ruc: '123',
-        cel: '-------'
-    },
-    {
-        id: '4',
-        razon: 'CONSORCIO HUERTA MINING EIRL',
-        ruc: '123',
-        cel: '-------'
-    }
-]
 
 const initState = {
     ruc: '',
@@ -36,33 +10,68 @@ const initState = {
     ticket: '',
     acopiador: ''
 }
+const empresas = [
+    {
+        id: '1',
+        razon: 'ARZAC CONSULTING SAC',
+        ruc: '123',
+        cel: '999999999'
+    },
+    {
+        id: '2',
+        razon: 'MINING LOS LAURELES EIRL ',
+        ruc: '123',
+        cel: '999999999'
+    },
+    {
+        id: '3',
+        razon: 'MINERA PICAPIEDRA 1313 EIRL',
+        ruc: '123',
+        cel: '999999999'
+    },
+    {
+        id: '4',
+        razon: 'CONSORCIO HUERTA MINING EIRL',
+        ruc: '123',
+        cel: '999999999'
+    }
+]
 
 export const FormIgreso = () => {
+    const [data,setData]=useState(initState)
+    const handleInputChange = ({ target }) => {
+
+        setData({
+            ...data,
+            [ target.name ]: target.value
+        });
+
+    }
+    useEffect(() => {
+        console.log('data',data)
+    },[ setData])
 
     const now = moment().format('DD/MM/YYYY HH:mm');
 
+    const {ruc,nombre,contacto,tonelaje,ticket,acopiador} = data;
 
-    const [formValues, setFormValues] = useState(initState);
-    const [test,settest] = useState('A');
+    const select = ({target})=>{
+       const seleccion = empresas.filter(empresa =>empresa.id === target.value)
+       JSON.stringify(seleccion)
+       const {razon, ruc,cel} = seleccion[0];
+
+       console.log('esta es la seleccion: ',typeof(seleccion),seleccion);
+       setData({
+           ...data,
+           ruc:ruc,
+           nombre:razon,
+           contacto:cel
 
 
-    const { ruc, nombre, contacto, tonelaje, ticket, acopiador } = formValues;
+    });
 
-    useEffect(() => {
-        console.log(test)
-    }, [ test,settest])
-
-   
-
-    const handleInputChange = ({ target }) => {
-        // setFormValues({
-        //     ...formValues,
-        //     [target.name]: target.value
-        console.log(target.value)
-
-        // });
     }
-
+    console.log(data)
 
     return (
         <div className='d-flex flex-row  bg-primary p-4 my-3 ml-4 formingreso '>
@@ -76,7 +85,7 @@ export const FormIgreso = () => {
                                 placeholder='RUC/DNI'
                                 value={ruc}
                                 name="ruc"
-                                 onChange={handleInputChange}
+                                onChange={handleInputChange}
                             />
                             <input
                                 type='text'
@@ -99,10 +108,10 @@ export const FormIgreso = () => {
                                     EMPRESA ASOCIADA
                                 </button>
                                 <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <button className="dropdown-item" value="1"  >ARZAC CONSULTING SAC</button>
-                                    <button className="dropdown-item" value="2"  >MINING LOS LAURELES EIRL</button>
-                                    <button className="dropdown-item" value="3" >MINERA PICAPIEDRA 1313 EIRL</button>
-                                    <button className="dropdown-item" value='4' >CONSORCIO HUERTA MINING EIRL</button>
+                                    <button className="dropdown-item" value="1" onClick={select}  >ARZAC CONSULTING SAC</button>
+                                    <button className="dropdown-item" value="2"  onClick={select}>MINING LOS LAURELES EIRL</button>
+                                    <button className="dropdown-item" value="3" onClick={select}>MINERA PICAPIEDRA 1313 EIRL</button>
+                                    <button className="dropdown-item" value='4' onClick={select}>CONSORCIO HUERTA MINING EIRL</button>
                                 </div>
                             </div>
                             <input
@@ -129,10 +138,10 @@ export const FormIgreso = () => {
                                 name='acopiador'
                                 onChange={handleInputChange}
                             />
-
                             <h4>Ingreso:{now}</h4>
-                            <button className='btn btn-success py-3 mt-3 '  type='submit'>
+                            <button className='btn btn-success py-3 mt-3 '  type='submit' >
                                 <i className="far fa-save"></i>
+                                
                                 <span>CARGA INGRESADA</span>
                             </button>
                         </div>

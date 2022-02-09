@@ -1,24 +1,28 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react'
 import { FormIgreso } from './FormIgreso'
 import { FormSalida } from './FormSalida'
 // import { CantidadCargas } from './CantidadCargas'
 
 export const Vigilancia = () => {
 
-  const [ingreso, setingreso] = useState(FormIgreso)
+const [ingreso, setingreso] = useState(<FormIgreso/>)
+
+
+
+useEffect(() => {
+  console.log('inicio')
+}, [ingreso]);
+
 
   const cambioIngreso = () => {
-    setingreso(FormIgreso);
+    setingreso(<FormIgreso/>)
   }
 
   const cambioSalida = () => {
-    setingreso(FormSalida);
+    setingreso(<FormSalida/>)
   }
 
-
-//  const mostrarTotal = () => {
-//     setingreso(CantidadCargas);
-//   } 
 
   return (
     <div className='container '>
