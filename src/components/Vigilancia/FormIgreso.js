@@ -15,25 +15,25 @@ const empresas = [
     {
         id: '1',
         razon: 'ARZAC CONSULTING SAC',
-        ruc: '123',
+        ruc: '20608227629',
         cel: '999999999'
     },
     {
         id: '2',
         razon: 'MINING LOS LAURELES EIRL ',
-        ruc: '123',
+        ruc: '206006155281',
         cel: '999999999'
     },
     {
         id: '3',
         razon: 'MINERA PICAPIEDRA 1313 EIRL',
-        ruc: '123',
+        ruc: '20606448598',
         cel: '999999999'
     },
     {
         id: '4',
         razon: 'CONSORCIO HUERTA MINING EIRL',
-        ruc: '123',
+        ruc: '20606177977',
         cel: '999999999'
     }
 ]
@@ -73,12 +73,25 @@ export const FormIgreso = () => {
 
     }
 
-    console.log(data);
+    
+    const saveCarga = async( e ) => {
+        e.preventDefault();
+        const resp = await fetch( 'http://localhost:8000/api/cargas/', {
+            method:'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify( data )
+        });
+        console.log(resp)
+    }
     return (
+        
         <div className='d-flex flex-row  bg-primary p-4 my-3 ml-4 formingreso '>
             <div className='Container '>
                 <div>
                     <div className='row container-fluid '>
+                        <form onSubmit={saveCarga}>
                         <div className='Form-group col-12'>
                             <input
                                 type='text'
@@ -116,7 +129,8 @@ export const FormIgreso = () => {
                                 </div>
                             </div>
                             <input
-                                type='text'
+                                type='number'
+                                step={0.10}
                                 className='form-control p-3 my-2 inputs'
                                 placeholder='Tonelaje de Ingreso'
                                 value={tonelaje}
@@ -154,8 +168,9 @@ export const FormIgreso = () => {
 
                                 <span>CARGA INGRESADA</span>
                             </button>
+                           
                         </div>
-
+                        </form>
                     </div>
                 </div>
 

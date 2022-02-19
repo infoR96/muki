@@ -1,10 +1,14 @@
 import React from 'react'
 import './index.css';
-import { Vigilancia } from './components/Vigilancia/Vigilancia'
+
+import { AppRouter } from './router/AppRouter'
 
 export const App = () => {
-  return (
-      <Vigilancia/>
-  )
+    return (
+       
+            <AppRouter />
+     
+    )
 }
+
 
