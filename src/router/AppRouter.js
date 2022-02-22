@@ -38,7 +38,7 @@ export const AppRouter = () => {
                         exact 
                         path="/login" 
                         component={ LoginScreen }
-                        isAuthenticated={ true }
+                        isAuthenticated={ false }
                     />
 
                     <PrivateRoute 
