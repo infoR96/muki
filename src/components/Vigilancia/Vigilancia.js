@@ -10,24 +10,24 @@ const [ingreso, setingreso] = useState(<FormIgreso/>)
 
 
 
-useEffect(() => {
-  console.log('inicio')
-}, [ingreso]);
+// useEffect(() => {
+//   console.log('inicio')
+// }, [ingreso]);
 
 
-  const cambioIngreso = () => {
-    setingreso(<FormIgreso/>)
-  }
+//   const cambioIngreso = () => {
+//     setingreso()
+//   }
 
-  const cambioSalida = () => {
-    setingreso(<FormSalida/>)
-  }
+//   const cambioSalida = () => {
+//     setingreso(<FormSalida/>)
+//   }
 
 
   return (
     <div className='container '>
       <div className='bg-light row'>
-        <div className='col-sm-'>
+        {/* <div className='col-sm-'>
           <img src='./assets/img/logo.jpg' alt='muki kutana' />
         </div>
         <div className='col-sm-8'>
@@ -40,8 +40,8 @@ useEffect(() => {
             className="btn btn-primary py-3 mt-3 botones">INGRESO DE CARGA</button>
           <button type="button" onClick={cambioSalida}
             className="btn btn-danger py-3 mt-3 botones">SALIDA DE CARGA</button>
-        </div>
-          {ingreso}
+        </div> */}
+        <FormIgreso/>
       </div>
     </div>
   )

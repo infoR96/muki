@@ -10,40 +10,36 @@ import {
 
 import { LoginScreen } from '../components/auth/LoginScreen';
 import {Vigilancia} from '../components/Vigilancia/Vigilancia'
-import { startChecking } from '../actions/auth';
- import { PublicRoute } from './PublicRoute';
- import { PrivateRoute } from './PrivateRoute';
+
 
 
 export const AppRouter = () => {
 
     // const dispatch = useDispatch();
-     const checking = useSelector(state => state.checking)
-     console.log('hola mundo',checking)
+    //  const checking = useSelector(state => state.checking)
 
-    useEffect(() => {
-        
-
-    }, [])
 
 
     return (
-        <BrowserRouter>
+                <Vigilancia/> 
+        // <BrowserRouter>
 
-                <Routes>
+        //         <Routes>
                   
-                    <PublicRoute 
-                        exact 
-                        path="/login" 
-                        element={<LoginScreen/>} isAuthenticated={ checking }/>
-                    <PrivateRoute
-                        exact 
-                        path="/*" 
-                        element={<Vigilancia/>} isAuthenticated={ checking } 
-                            />
+        //             <Route 
+        //                 exact 
+        //                 path="/login" 
+        //                 element={<LoginScreen/>}
+                      
+        //             />
+        //             <Route 
+        //                 exact 
+        //                 path="/*" 
+                            
+        //             />
                  
-                </Routes>
+        //         </Routes>
           
-        </BrowserRouter>
+        // </BrowserRouter>
     )
 }

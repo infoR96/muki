@@ -48,9 +48,7 @@ export const FormIgreso = () => {
         });
 
     }
-    useEffect(() => {
-        console.log('data', data)
-    }, [setData])
+
 
     const now = moment().format('DD/MM/YYYY HH:mm');
 
@@ -67,31 +65,26 @@ export const FormIgreso = () => {
             ruc: ruc,
             nombre: razon,
             contacto: cel
-
-
         });
-
     }
-
-    
-    const saveCarga = async( e ) => {
-        e.preventDefault();
-        const resp = await fetch( 'http://localhost:8000/api/cargas/', {
-            method:'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify( data )
-        });
-        console.log(resp)
-    }
+    // const saveCarga = async( e ) => {
+    //     e.preventDefault();
+    //     const resp = await fetch( 'http://localhost:8000/api/cargas/', {
+    //         method:'POST',
+    //         headers: {
+    //             'Content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify( data )
+    //     });
+    //     console.log(resp)
+    // }
     return (
         
         <div className='d-flex flex-row  bg-primary p-4 my-3 ml-4 formingreso '>
             <div className='Container '>
                 <div>
                     <div className='row container-fluid '>
-                        <form onSubmit={saveCarga}>
+                        <form >
                         <div className='Form-group col-12'>
                             <input
                                 type='text'
