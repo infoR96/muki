@@ -10,7 +10,7 @@ import {
 
 import { LoginScreen } from '../components/auth/LoginScreen';
 import {Vigilancia} from '../components/Vigilancia/Vigilancia'
-// import { startChecking } from '../actions/auth';
+import { startChecking } from '../actions/auth';
  import { PublicRoute } from './PublicRoute';
  import { PrivateRoute } from './PrivateRoute';
 
@@ -18,37 +18,29 @@ import {Vigilancia} from '../components/Vigilancia/Vigilancia'
 export const AppRouter = () => {
 
     // const dispatch = useDispatch();
-     const { checking, uid } = useSelector( state => state.auth);
+     const checking = useSelector(state => state.checking)
+     console.log('hola mundo',checking)
 
-    // useEffect(() => {
+    useEffect(() => {
         
-    //     dispatch( startChecking() );
 
-    // }, [dispatch])
+    }, [])
 
-    // if ( checking ) {
-    //     return (<h5>Espere...</h5>);
-    // }
 
     return (
         <BrowserRouter>
 
                 <Routes>
                   
-                    <Route 
+                    <PublicRoute 
                         exact 
                         path="/login" 
-                        element={<PublicRoute isAuthenticated={ checking } >
-                                <LoginScreen/> 
-                            </PublicRoute>}
-                    />
-                    <Route 
+                        element={<LoginScreen/>} isAuthenticated={ checking }/>
+                    <PrivateRoute
                         exact 
                         path="/*" 
-                        element={<PrivateRoute isAuthenticated={ checking } >
-                                <Vigilancia/> 
-                            </PrivateRoute>}
-                    />
+                        element={<Vigilancia/>} isAuthenticated={ checking } 
+                            />
                  
                 </Routes>
           

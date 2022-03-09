@@ -12,8 +12,6 @@ export const PrivateRoute = ({Children,isAuthenticated}) => {
                     ? ( <Navigate to="/login" /> )
                     : ( Children )
             }
-        
-       
  
 PrivateRoute.propTypes = {
     isAuthenticated: PropTypes.bool.isRequired,
